@@ -1,23 +1,25 @@
 package net.cyys.admin.controller;
 
-import java.util.Map;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AdminController {
-	
-	@RequestMapping("/")
-	public String test(Map<String, Object> modal) {
-		modal.put("message", "测试beetl");
-		return "templates/index";
+
+	/**
+	 * 后台管理登录页面.
+	 * 
+	 * @author cyys
+	 * @return
+	 */
+	@RequestMapping("/admin/*")
+	public String adminLogin() {
+		return "templates/admin/login";
 	}
 	
-	@RequestMapping("/test")
-	@ResponseBody
-	public Object test() {
-		return "test";
+	@RequestMapping("/admin/index")
+	public String index() {
+		return "templates/admin/index";
 	}
+
 }
